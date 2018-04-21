@@ -1,0 +1,27 @@
+<p> time-tracker works! </p>
+
+<hr>
+<br>
+
+<div>
+Counter started at: {{ startDate }}
+</div>
+
+<hr>
+<br>
+<div>
+Counter stopped at: {{ endDate }}
+</div>
+
+<hr>
+<br>
+<div>
+Time elapsed: {{ difference }} ms.
+</div>
+
+<hr>
+<br>
+<div>
+<button (click)="startCounter()">Start Counter</button>
+<button (click)="stopCounter()">Stop Counter</button>
+</div>
