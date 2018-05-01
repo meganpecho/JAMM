@@ -1,0 +1,33 @@
+// Base Grid Template
+html, body { min-height: 100%; }
+*, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.wrapper {
+	display: grid;
+	grid-gap: 0px;
+	grid-template-columns: repeat(12, [col-start] 1fr);
+	* {
+		grid-column: col-start / span 12;
+	}
+}
+
+@media (min-width: 500px) {
+	.nav, .jumbotron, .footer {
+		grid-column: col-start / span 12;
+	}
+	.aside {
+		&-2 { grid-column: col-start / span 12; }
+	}
+	.content { grid-column: col-start / span 12; }
+}
+
+@media (min-width: 720px) {
+	.nav, .jumbotron, .footer {
+		grid-column: col-start / span 12;
+	}
+	.aside {
+		&-1 { grid-column: col-start / span 3; }
+		&-2 { grid-column: col-start 10 / span 3; }
+	}
+	.content { grid-column: col-start 4 / span 6; }
+}

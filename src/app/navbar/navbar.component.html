@@ -1,7 +1,7 @@
-<div class="nav">
+<div class="nav" [ngClass]="{'activeNav': toggle}">
 	<div class="brandInfo"><div class="name">backlog</div></div>
 	<div class="menu-btn">
-		<div class="menu-toggle active">
+		<div class="menu-toggle" (click)="toggleMenu()" [ngClass]="{'active': toggle}">
 			<span class="bars"></span>
 		</div>
 	</div>
