@@ -1,6 +1,6 @@
-# JAMM
+# Backlog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+A simple tool to help you manage your time visually and improve your ability to estimate how long a task will take you.
 
 ## Development server
 

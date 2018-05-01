@@ -1,0 +1,2 @@
+html, body { min-height: 100%; }
+*, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; border: 1px solid blue; }
