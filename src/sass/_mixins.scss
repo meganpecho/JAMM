@@ -1,24 +1,19 @@
+// FONTS
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans|PT+Sans+Caption');
+$h1: 'PT Sans Caption', sans-serif;
 $h4:'PT Sans', sans-serif;
 $p: 'Open Sans', sans-serif;
-$h1: 'PT Sans Caption', sans-serif;
-// Colors
+
+// COLORS
 $jumbotron: rgba(39, 48, 67, 1);//rgba(176, 255, 146, 1);
 $nav: rgba(39, 48, 67, 1);//rgba(100, 80, 130, 1);
 $li: rgba(255, 255, 255, 1);
-$aside1: rgba(39, 48, 67, 1);//rgba(8, 61, 119, 1);
+$sideNav: rgba(39, 48, 67, 1);//rgba(8, 61, 119, 1);
 $content: rgba(0, 191, 178, 1);
 $aside2: rgba(191, 215, 234, 1);
 $wrapper: rgba(255, 164, 0, 1);
 $footer: rgba(100, 80, 130, 1);
 /* Coolors Exported Palette - coolors.co/273043-d00000-9db5b2-daf0ee-94d1be 4ECDC4 */
-
-/* HSL */
-$color1: hsla(221%, 26%, 21%, 1);
-$color2: hsla(0%, 100%, 41%, 1);
-$color3: hsla(173%, 14%, 66%, 1);
-$color4: hsla(175%, 42%, 90%, 1);
-$color5: hsla(161%, 40%, 70%, 1);
 
 /* RGB */
 $color1: rgba(39, 48, 67, 1);
