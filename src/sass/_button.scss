@@ -36,5 +36,11 @@
 }
 
 .icon-btn {
-
+    width: 20px;
+    height: 20px;
+    background: lime;
+    &:hover {
+        cursor: pointer;
+        background: blue;
+    }
 }
