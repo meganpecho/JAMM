@@ -36,11 +36,21 @@
 }
 
 .icon-btn {
-    width: 20px;
-    height: 20px;
-    background: lime;
+    background-color: transparent;
+    border: none;
+    padding: 2px;
+    .material-icons {
+        &.md-24 {
+            font-size: 28px;
+        }
+        &.md-light {
+            color: $icon;
+            &:hover {
+                color: darken($icon, 20%);
+            }
+        }
+    }
     &:hover {
         cursor: pointer;
-        background: blue;
     }
 }

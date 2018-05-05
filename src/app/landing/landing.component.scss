@@ -6,24 +6,9 @@
     background: white;
     background-size: cover;
     padding: 40px;
-    hr {
-        border: 3px solid $jumbotron;
-        border-radius: 1px;
-    }
     .jumbotron-content {
         margin-top: 70px;
         padding: 80px;
-        h1 {
-            font-family: $h1;
-            color: $jumbotron;
-            font-size: 70px;
-        }
-
-        h4 {
-            font-family: $h4;
-            color: $jumbotron;
-            font-size: 30px;
-        }
         .btn-container {
             padding-top: 40px;
             display: flex;
@@ -40,11 +25,6 @@
 	justify-content: flex-end;
     align-items: center;
     padding-right: 20px;
-	p {
-		color: white;
-		font-size: 15px;
-        font-family: $p;
-	}
 }
 
 @media (max-width: 540px) {
