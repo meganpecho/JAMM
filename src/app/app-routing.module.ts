@@ -4,12 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CallbackComponent } from './callback/callback.component';
 
 const routes:Routes = [
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'landing', component: LandingComponent },
-    { path: 'callback', component: CallbackComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: '**', redirectTo: '' }
 ];
