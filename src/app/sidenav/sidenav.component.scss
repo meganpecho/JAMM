@@ -1,0 +1,17 @@
+@import '~sass/mixins';
+
+.sidenav {
+    display: flex;
+	position: fixed;
+	flex-flow: column wrap;
+    background-color: $jumbotron;
+    height: 100%;
+    z-index: 0;
+	ul {
+		list-style: none;
+        padding: 70px 20px 5px 20px;
+        li {
+            margin: 20px 0;
+        }
+    }
+}

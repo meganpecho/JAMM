@@ -1,0 +1,15 @@
+<div class="nav" [ngClass]="{'activeNav': toggle}">
+	<div class="brandInfo"><div class="name">backlog</div></div>
+	<div class="menu-btn">
+		<div class="menu-toggle" (click)="toggleMenu()" [ngClass]="{'active': toggle}">
+			<span class="bars"></span>
+		</div>
+	</div>
+	<div class="links">
+		<ul>
+			<li><a routerLink="" target="_blank">About</a></li>
+			<li><a routerLink="" target="_blank">FAQ</a></li>
+			<li><a routerLink="" target="_blank">Contact</a></li>
+		</ul>
+	</div>
+</div>

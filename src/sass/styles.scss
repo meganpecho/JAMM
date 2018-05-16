@@ -1,0 +1,53 @@
+@import './grid';
+@import './mixins';
+@import './button';
+
+
+h1 {
+    font-family: $h1;
+    font-size: 70px;
+    .light {
+        color: white;
+    }
+    .dark {
+        color: $jumbotron;
+    }
+}
+
+h4 {
+    font-family: $h4;
+    font-size: 30px;
+    .light {
+        color: white;
+    }
+    .dark {
+        color: $jumbotron;
+    }
+}
+
+h5 {
+    font-family: $h4;
+    font-size: 30px;
+    .light {
+        color: white;
+    }
+    .dark {
+        color: black;
+    }
+}
+
+p {
+    font-size: 15px;
+    font-family: $p;
+    .light {
+        color: white;
+    }
+    .dark {
+        color: black;
+    }
+}
+
+hr {
+    border: 3px solid $jumbotron;
+    border-radius: 1px;
+}

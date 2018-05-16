@@ -1,0 +1,38 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans|PT+Sans+Caption');
+$h1: 'PT Sans Caption', sans-serif;
+$h4:'PT Sans', sans-serif;
+$p: 'Open Sans', sans-serif;
+
+// COLORS
+$jumbotron: rgba(39, 48, 67, 1);//rgba(176, 255, 146, 1);
+$nav: rgba(39, 48, 67, 1);//rgba(100, 80, 130, 1);
+$li: rgba(255, 255, 255, 1);
+$sideNav: rgba(39, 48, 67, 1);//rgba(8, 61, 119, 1);
+$content: rgba(0, 191, 178, 1);
+$aside2: rgba(191, 215, 234, 1);
+$wrapper: rgba(255, 164, 0, 1);
+$footer: rgba(100, 80, 130, 1);
+$icon: rgba(255, 255, 255, 1);
+/* Coolors Exported Palette - coolors.co/273043-d00000-9db5b2-daf0ee-94d1be 4ECDC4 */
+
+/* RGB */
+$color1: rgba(39, 48, 67, 1);
+$color2: rgba(208, 0, 0, 1);
+$color3: rgba(157, 181, 178, 1);
+$color4: rgba(218, 240, 238, 1);
+$color5: rgba(148, 209, 190, 1);
+
+//Navbar
+$bar_color: #fff;
+$size: 40px;
+$bar_height: $size / 8;
+$offset: $bar_height * 2;
+
+@mixin bar {
+	display: block;
+	width: $size;
+	height: $bar_height;
+	background: $bar_color;
+	border-radius: 2px;
+}
