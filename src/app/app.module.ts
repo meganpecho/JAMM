@@ -40,7 +40,9 @@ import {
   MatTooltipModule
 } from '@angular/material';
 
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -48,6 +50,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -58,10 +61,13 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent,
     DashboardComponent,
     SidenavComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
+	BrowserAnimationsModule,
+	CalendarModule.forRoot(),
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -96,7 +102,8 @@ import { AppRoutingModule } from './app-routing.module';
 	MatTableModule,
 	MatTabsModule,
 	MatToolbarModule,
-	MatTooltipModule
+	MatTooltipModule,
+	ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
