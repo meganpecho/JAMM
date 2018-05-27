@@ -4,6 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -13,8 +14,10 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { NgbdModalComponent } from './ngb-modal/modal.component';
 import { NgbdDatepickerPopupComponent } from './ngb-datepicker/datepicker-popup.component';
 import { NgbdTimepickerMeridianComponent } from './ngb-timepicker/timepicker-meridian.component';
+import { FullCalendarComponent } from './full-calendar/full-calendar.component'
 
 import { AppRoutingModule } from './app-routing.module';
+import { EventSesrvice } from './full-calendar/event.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     SidenavComponent,
     NgbdModalComponent,
 	  NgbdDatepickerPopupComponent,
-	  NgbdTimepickerMeridianComponent
+    NgbdTimepickerMeridianComponent,
+    FullCalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +37,10 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FullCalendarModule
   ],
-  providers: [],
+  providers: [EventSesrvice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

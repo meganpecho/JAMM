@@ -4,6 +4,7 @@ import { NgbDatepickerConfig, NgbDateParserFormatter } from '@ng-bootstrap/ng-bo
 import { NgbDateUSParserFormatter } from '../ngb-datepicker/ngb-date-us-parser-formatter';
 import { NgbdDatepickerPopupComponent } from '../ngb-datepicker/datepicker-popup.component';
 import { NgbdTimepickerMeridianComponent } from '../ngb-timepicker/timepicker-meridian.component';
+import { FullCalendarComponent } from '../full-calendar/full-calendar.component';
 
 @Component({
   selector: 'app-dashboard',
