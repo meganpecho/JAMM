@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -48,7 +49,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
-import {DailyToDoComponent} from'./daily-to-do/daily-to-do.component';
+import {DailyToDoComponent} from'./components/daily-to-do/daily-to-do.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -62,6 +63,7 @@ import { AppRoutingModule } from './app-routing.module';
     DailyToDoComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
