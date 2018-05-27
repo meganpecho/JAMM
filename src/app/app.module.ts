@@ -13,6 +13,11 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthService } from './auth/auth.service';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
+import { DbConnectService } from './services/db-connect.service';
 
 @NgModule({
   declarations: [
@@ -20,15 +25,18 @@ import { AuthService } from './auth/auth.service';
     LandingComponent,
     NavbarComponent,
     DashboardComponent,
-    SidenavComponent
+    SidenavComponent,
+    TimeTrackerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(environment.firebase, 'JAMM'),
+    AngularFirestoreModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, DbConnectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
