@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { ChartModule } from 'angular-highcharts';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -13,6 +14,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthService } from './auth/auth.service';
+import { ChartComponent } from './chart/chart.component';
+
 
 @NgModule({
   declarations: [
@@ -20,15 +23,17 @@ import { AuthService } from './auth/auth.service';
     LandingComponent,
     NavbarComponent,
     DashboardComponent,
-    SidenavComponent
+    SidenavComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    ChartModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

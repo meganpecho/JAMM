@@ -25,6 +25,10 @@
 	justify-content: flex-end;
     align-items: center;
     padding-right: 20px;
+    p.light {
+        color: white;
+        margin-bottom: 0;
+    }
 }
 
 @media (max-width: 540px) {
