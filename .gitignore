@@ -43,3 +43,4 @@ testem.log
 .DS_Store
 Thumbs.db
 /src/app/auth/auth0-variables.ts
+/src/environments/environment.ts
