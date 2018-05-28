@@ -2,10 +2,18 @@
 <br>
 <br>
 
-<p>
-  time-tracker works!
-</p>
+<div *ngIf="timestamps?.length > 0; else noTimestampsTemplate">
+  <ul *ngFor="let timestamp of timestamps">
+    <li> <strong> Start time: </strong> {{ timestamp.start_time }}</li>
+    <li> <strong> End time: </strong> {{ timestamp.end_time }}</li>
+    <li> <strong> Elapsed time </strong> {{ timestamp.time_elapsed_sec }}</li>
+  </ul>
+  <br>
+</div>
 
+<ng-template #noTimestampsTemplate>
+  <p> There are no Timestamps to be retrieved :( </p>
+</ng-template>
 <br>
 <br>
 <br>
