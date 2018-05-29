@@ -67,6 +67,7 @@ import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -75,12 +76,9 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     DashboardComponent,
     SidenavComponent,
-<<<<<<< HEAD
     ChartComponent,
-=======
     DatepickerComponent,
     DailyToDoComponent,
->>>>>>> 20aae2db4a6b406d03778653624f52d5f588ca33
 	NgbdModalComponent,
 	NgbdDatepickerPopupComponent,
     NgbdTimepickerMeridianComponent,
@@ -89,7 +87,8 @@ import { FooterComponent } from './footer/footer.component';
     AboutComponent,
     FaqComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    TaskComponent
   ],
   imports: [
     BrowserAnimationsModule,

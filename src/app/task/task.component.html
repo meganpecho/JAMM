@@ -1,0 +1,10 @@
+<div class="task">
+    <div class="task-content">
+        <h6>{{name}}</h6>
+        <p>{{description}}</p>
+        <p>Est. Time: {{estimatedTime}}</p>
+        <p *ngIf="completed">Actual Time: {{actualTime}}</p>
+        <div class="btns btns-secondary" *ngIf="!completed" (click)="startTask()">Start Task</div>
+        <div class="btns btns-secondary" *ngIf="inProgress" (click)="completeTask()">Complete Task</div>
+    </div>
+</div>

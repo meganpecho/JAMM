@@ -3,16 +3,24 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-daily-to-do',
   templateUrl: './daily-to-do.component.html',
-  styleUrls: ['./daily-to-do.component.css']
+  styleUrls: ['./daily-to-do.component.scss']
 })
 export class DailyToDoComponent implements OnInit {
 
   title:String;
 //  currentTasks:{value: String, viewValue: String}[];
-  currentTasks:{value: String}[];
-  completedTasks:{value: String}[];
+  currentTasks:{name:string, description:string, inProgress:boolean, completed:boolean, estimatedTime:string, actualTime:string, id:string}[];
+  completedTasks:{name:string, description:string, inProgress:boolean, completed:boolean, estimatedTime:string, actualTime:string, id:string}[];
 
   selectedTask:string;
+
+  name:string;
+  description:string;
+  estimatedTime:string;
+  actualTIme:string;
+
+  inProgress:boolean = false;
+  completed:boolean = false;
 
   constructor() {}
 
@@ -30,17 +38,13 @@ export class DailyToDoComponent implements OnInit {
   }
 
 
-  onClick(){
-
-}
-
   // Create a new task when clicking the "Add" button
   addTask(task){
     if (task === ''){
       alert("Please enter a task")
     }
     else{
-      this.currentTasks.unshift({value: task});
+      this.currentTasks.unshift({name: task, description: 'sample', inProgress:false, completed:false, estimatedTime:'20', actualTime:'30', id:name});
       localStorage.setItem('currentTasks', JSON.stringify(this.currentTasks));
     }
   }
@@ -49,10 +53,10 @@ export class DailyToDoComponent implements OnInit {
   //removes current tasks
   deleteTask(task){
 
-    var e = (<HTMLSelectElement>document.getElementById("currentTasksSelect")).options;
-    console.log(e);
+    // var e = (<HTMLSelectElement>document.getElementById("currentTasksSelect")).options;
+    // console.log(e);
     for(let i = 0; i<this.currentTasks.length;i++){
-      if(this.currentTasks[i].value == task){
+      if(this.currentTasks[i].name == task){
         console.log("finna delete" + task);
         this.currentTasks.splice(i,1);
         localStorage.setItem('currentTasks', JSON.stringify(this.currentTasks));
@@ -62,14 +66,35 @@ export class DailyToDoComponent implements OnInit {
 
   //adds task to completedTask list and deletes from current task list
   completeTask(task){
-    this.completedTasks.unshift({value: task});
-    localStorage.setItem('completedTasks', JSON.stringify(this.currentTasks));
+    // this.inProgress = false;
+    // this.completed = true;
+
+    let elem = this.currentTasks.find(function(element) {
+        return element.name === task;
+    });
+
+    this.currentTasks.splice(this.currentTasks.indexOf(elem), 1);
+
+    this.completedTasks.unshift({name: task, description: 'sample', inProgress:false, completed:false, estimatedTime:'20', actualTime:'30', id:name});
+    localStorage.setItem('completedTasks', JSON.stringify(this.completedTasks));
     //onClick();
-    this.deleteTask(task);
+    // this.deleteTask(task);
 
   }
 
   updateValue(task:string) {
     this.selectedTask = task;
   }
+
+  startTask(id):void {
+      let elem = this.currentTasks.find(function(element) {
+          return element.name === id;
+      });
+
+      this.currentTasks.splice(this.currentTasks.indexOf(elem), 1);
+      elem['inProgress'] = true;
+      // console.log(elem.inProgress);
+      this.currentTasks.push(elem);
+  }
+
 }

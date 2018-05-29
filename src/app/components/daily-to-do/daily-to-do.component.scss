@@ -1,0 +1,68 @@
+@import '~sass/mixins';
+// #container{
+//   width: 80%;
+//   height: 200px;
+//   margin: auto;
+//   padding: 10px;
+// }
+//
+// #currentTasksInput{
+//   width: 30%;
+//   height: 100px;
+//   float: left;
+// }
+// #currentTasksList{clear: both;}
+//
+// #completedTasks{
+//   /*display: inline-block;
+//   float: right;*/
+//   margin-left: 15%;
+//   height: 200px;
+// }
+//
+// #completeTaskButton, #deleteTaskButton {
+//   float: left;
+// }
+//
+// #currentDropDown {
+//   padding: 0px 0px 0px 70px;
+// }
+// * {
+//     border: 1px solid blue;
+// }
+.currentTasksInput {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+    .taskInputSection {
+        .taskInput {
+            width: 300px;
+        }
+    }
+}
+.task-grid {
+    width: 60%;
+    display: inline-flex;
+	// grid-gap: 5px;
+	// grid-template-columns: repeat(12, [col-start] 1fr);
+    .task {
+        // grid-column: span 3;
+        width: 160px;
+        height: 160px;
+        margin: 5px;
+        display: flex;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+        box-shadow: 1px 1px 5px #aaaaaa;
+        background-color: $task;
+        // text-align: left;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+    }
+}

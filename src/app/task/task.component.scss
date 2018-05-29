@@ -1,0 +1,13 @@
+@import '~sass/mixins';
+
+.task {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    padding: 10px;
+    border: 1px solid red;
+    box-shadow: 1px 1px 5px #aaaaaa;
+    .task-content {
+
+    }
+}

@@ -11,7 +11,7 @@
     font-weight: 700;
     transition: all .2s linear;
     box-shadow: 1px 1px 5px #aaaaaa;
-    display: flex;
+    display: inline-flex;
     flex-flow: row nowrap;
     justify-content: center;
     &:hover {
@@ -31,6 +31,9 @@
         border-color: $jumbotron;
         background-color: $jumbotron;
         color: white;
+        width: 80px;
+        font-size: 14px;
+        padding: 5px 10px;
         &:hover {
             background-color: lighten($jumbotron, 20%);
             border-color: lighten($jumbotron, 20%);
