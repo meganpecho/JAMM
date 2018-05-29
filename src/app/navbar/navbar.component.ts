@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
     ngOnInit() {
     }
 
-    private toggle:boolean = false;
+    toggle:boolean = false;
 
     toggleMenu() {
       this.toggle = !this.toggle;
