@@ -86,6 +86,36 @@ export class ChartComponent implements OnInit {
                 name: 'Write reaction paper',
                 estimatedTime: 10,
                 actualTime: 10
+            },
+            task5: {
+                name: 'Write reaction paper',
+                estimatedTime: 10,
+                actualTime: 10
+            },
+            task6: {
+                name: 'Write reaction paper',
+                estimatedTime: 10,
+                actualTime: 10
+            },
+            task7: {
+                name: 'Write reaction paper',
+                estimatedTime: 10,
+                actualTime: 10
+            },
+            task8: {
+                name: 'Write reaction paper',
+                estimatedTime: 10,
+                actualTime: 10
+            },
+            task9: {
+                name: 'Write reaction paper',
+                estimatedTime: 10,
+                actualTime: 10
+            },
+            task10: {
+                name: 'Write reaction paper',
+                estimatedTime: 10,
+                actualTime: 10
             }
         };
 
