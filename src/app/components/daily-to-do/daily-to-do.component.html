@@ -1,0 +1,32 @@
+<div id = "container">
+  <div id = "currentTasksInput">
+    <h2> Current Tasks </h2>
+
+      <input type = "text" #task placeholder="Enter Task">
+        <button id = "addTaskButton" mat-button (click) ="addTask(task.value)">Add</button>
+    <!--</div>-->
+  <!--<div id = "currentTasksList">-->
+    <mat-form-field>
+      <mat-select id = "currentTasksSelect">
+        <mat-option *ngFor="let task of currentTasks" [value] ="task.value" (click)="updateValue(task.value)">
+          {{task.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button id = "completeTaskButton" mat-button (click) ="completeTask(selectedTask)">complete</button>
+    <button id = "deleteTaskButton" mat-button (click) ="deleteTask(selectedTask)">delete</button>
+
+    </div>
+
+  <div id = "completedTasks">
+    <h2> Completed Tasks </h2>
+
+    <mat-form-field>
+      <mat-select>
+        <mat-option *ngFor="let completedTask of completedTasks" [value] ="completedTask.value">
+          {{completedTask.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
