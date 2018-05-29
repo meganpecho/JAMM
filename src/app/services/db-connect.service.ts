@@ -10,10 +10,17 @@ export class DbConnectService {
   timestamps: Observable<Timestamp[]>;
 
   constructor(public afs: AngularFirestore) {
-    this.timestamps = this.afs.collection('timestamps').valueChanges();
+    this.timestampCollection = this.afs.collection('timestamps');
+    this.timestamps = this.timestampCollection.valueChanges();
   }
 
+  // retrieve timestamps from db
   getTimestamps() {
     return this.timestamps;
+  }
+
+  // add timestamp to db
+  addTimestamp(timestamp: Timestamp) {
+    this.timestampCollection.add(timestamp);
   }
 }

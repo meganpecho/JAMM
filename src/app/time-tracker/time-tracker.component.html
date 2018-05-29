@@ -8,11 +8,13 @@
 <p> Time elapsed: {{ difference }} ms. </p>
 
 <button (click)="startCounter()"> Start </button>
-<button (click)="stopCounter()"> Stop </button>
+<button (click)="submitStopDate()"> Stop DB </button>
+
 
 <br><br>
 <div *ngIf="timestamps?.length > 0; else noTimestampsTemplate">
   <ul *ngFor="let timestamp of timestamps">
+    <!-- <li> <strong> ID: </strong> {{ timestamp.id }}</li> -->
     <li> <strong> Start time: </strong> {{ timestamp.start_time }}</li>
     <li> <strong> End time: </strong> {{ timestamp.end_time }}</li>
     <li> <strong> Elapsed time </strong> {{ timestamp.time_elapsed_sec }}</li>
