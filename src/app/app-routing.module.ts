@@ -6,9 +6,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes:Routes = [
-    { path: '', redirectTo: '/landing', pathMatch: 'full' },
+    { path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'landing', component: LandingComponent },
-    { path: 'dashboard', component: DashboardComponent }
+    { path: 'dashboard', component: DashboardComponent },
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
