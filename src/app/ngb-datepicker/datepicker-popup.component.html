@@ -1,0 +1,16 @@
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input readonly type='text' class="form-control" placeholder="mm-dd-yyyy"
+             name="dp" [(ngModel)]="pickerModel" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+          <i class="material-icons md-28 md-light">today</i>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<hr/>
+<pre>Model: {{ pickerModel | json }}</pre>

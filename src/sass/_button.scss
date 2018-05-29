@@ -1,3 +1,4 @@
+/*
 @import './mixins';
 
 .btn {
@@ -33,17 +34,8 @@
             border-color: lighten($jumbotron, 20%);
         }
     }
-    &-nav {
-        border-color: white;
-        background-color: $jumbotron;
-        color: white;
-        box-shadow: none;
-        &:hover {
-            background-color: lighten($jumbotron, 20%);
-            border-color: lighten($jumbotron, 20%);
-        }
-    }
 }
+*/
 
 .icon-btn {
     background-color: transparent;
