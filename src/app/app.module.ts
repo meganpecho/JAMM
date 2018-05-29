@@ -24,6 +24,10 @@ import { ChartComponent } from './chart/chart.component';
 
 import { EventService } from './full-calendar/event.service';
 import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
+import { AboutComponent } from './about/about.component';
+import { FaqComponent } from './faq/faq.component';
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { CalendarModalComponent } from './calendar-modal/calendar-modal.componen
 	NgbdDatepickerPopupComponent,
     NgbdTimepickerMeridianComponent,
     FullCalendarComponent,
-    CalendarModalComponent
+    CalendarModalComponent,
+    AboutComponent,
+    FaqComponent,
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
