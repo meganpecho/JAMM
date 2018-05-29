@@ -2,14 +2,40 @@
 <br>
 <br>
 
+
+<h3> Add task </h3>
+  <form (ngSubmit)="addNewTask()">
+    <div>
+      <input type="text" placeholder="Add a task" [(ngModel)]="task.task_name"
+        name="Task name">
+        <label> Title </label>
+    </div>
+
+    <div>
+    <input type="text" placeholder="Add a description" [(ngModel)]="task.task_description"
+      name="Task Description">
+      <label> Description </label>
+    </div>
+    <div>
+    <input type="text" placeholder="Enter a number" [(ngModel)]="task.estimated_time_mins"
+      name="Est. time">
+      <label> Estimated time (in minutes) </label>
+    </div>
+    <input type="submit" value="submit">
+
+    </form>
+
+<br><br>
+
+<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+
 <p> Counter started at: {{ startDate }} </p>
 <p> Counter stopped at: {{ endDate }} </p>
 
 <p> Time elapsed: {{ difference }} ms. </p>
 
-<button (click)="startCounter()"> Start </button>
-<button (click)="submitStopDate()"> Stop DB </button>
-
+<button (click)="startCounter()" id="button-start"> Start </button>
+<button (click)="submitStopDate()" id="button-stop"> Stop DB </button>
 
 <br><br>
 <div *ngIf="timestamps?.length > 0; else noTimestampsTemplate">
@@ -25,6 +51,7 @@
 <ng-template #noTimestampsTemplate>
   <p> There are no Timestamps to be retrieved :( </p>
 </ng-template>
+
 <br>
 <br>
 <br>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DbConnectService } from '../services/db-connect.service';
 import { Timestamp } from '../models/timestamp';
+import { Task } from '../models/task';
 
 @Component({
   selector: 'app-time-tracker',
@@ -20,20 +21,26 @@ export class TimeTrackerComponent implements OnInit {
     time_elapsed_sec: 0
   }
 
+  task: Task = {
+    task_name: '',
+    task_description: '',
+    estimated_time_mins: 0
+  }
+
   startCounter() {
     let currentDate = new Date();
     this.startDate = currentDate;
   }
 
-  stopCounter() {
-    let currentDate = new Date();
-    this.endDate = currentDate;
-    this.difference = this.endDate - this.startDate;
-  }
-  constructor(private timestampService: DbConnectService) { }
+  // stopCounter() {
+  //   let currentDate = new Date();
+  //   this.endDate = currentDate;
+  //   this.difference = this.endDate - this.startDate;
+  // }
+  constructor(private dbService: DbConnectService) { }
 
   ngOnInit() {
-    this.timestampService.getTimestamps().subscribe(timestamps => {
+    this.dbService.getTimestamps().subscribe(timestamps => {
         this.timestamps = timestamps;
     });
   }
@@ -49,10 +56,18 @@ export class TimeTrackerComponent implements OnInit {
         this.difference = this.endDate - this.startDate;
         this.timestamp.time_elapsed_sec = this.difference;
         console.log(this.timestamp);
-        this.timestampService.addTimestamp(this.timestamp);
+        this.dbService.addTimestamp(this.timestamp);
         this.startDate = undefined;
         this.endDate = undefined;
     }
+  }
+
+  addNewTask(){
+      if (this.task.task_name != '') {
+        console.log(this.task);
+        this.dbService.addTask(this.task);
+      }
+
   }
 
 }

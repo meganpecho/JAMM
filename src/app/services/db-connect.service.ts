@@ -15,6 +15,9 @@ export class DbConnectService {
   constructor(public afs: AngularFirestore) {
     this.timestampCollection = this.afs.collection('timestamps');
     this.timestamps = this.timestampCollection.valueChanges();
+
+    this.taskCollection = this.afs.collection('tasks');
+    this.tasks = this.timestampCollection.valueChanges();
   }
 
   // retrieve timestamps from db
