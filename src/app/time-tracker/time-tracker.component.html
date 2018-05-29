@@ -27,7 +27,11 @@
 
 <br><br>
 
-<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+
+<h2> {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} </h2>
+
+  <br>
+
 
 <p> Counter started at: {{ startDate }} </p>
 <p> Counter stopped at: {{ endDate }} </p>
@@ -35,7 +39,7 @@
 <p> Time elapsed: {{ difference }} ms. </p>
 
 <button (click)="startCounter()" id="button-start"> Start </button>
-<button (click)="submitStopDate()" id="button-stop"> Stop DB </button>
+<button (click)="submitStopDate()" id="button-stop"> Stop </button>
 
 <br><br>
 <div *ngIf="timestamps?.length > 0; else noTimestampsTemplate">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DbConnectService } from '../services/db-connect.service';
 import { Timestamp } from '../models/timestamp';
 import { Task } from '../models/task';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-time-tracker',
@@ -14,6 +15,51 @@ export class TimeTrackerComponent implements OnInit {
   startDate;
   endDate;
   difference = 0;
+  ticks = 0;
+
+  minutesDisplay: number = 0;
+  hoursDisplay: number = 0;
+  secondsDisplay: number = 0;
+  sub: Subscription;
+  timer;
+
+
+  private startTimer() {
+        this.timer = Observable.timer(1, 1000);
+        this.sub = this.timer.subscribe(
+            t => {
+                this.ticks = t;
+
+                this.secondsDisplay = this.getSeconds(this.ticks);
+                this.minutesDisplay = this.getMinutes(this.ticks);
+                this.hoursDisplay = this.getHours(this.ticks);
+            }
+        );
+    }
+
+    private getSeconds(ticks: number) {
+        return this.pad(ticks % 60);
+    }
+
+    private getMinutes(ticks: number) {
+         return this.pad((Math.floor(ticks / 60)) % 60);
+    }
+
+    private getHours(ticks: number) {
+        return this.pad(Math.floor((ticks / 60) / 60));
+    }
+
+    private pad(digit: any) {
+        return digit <= 9 ? '0' + digit : digit;
+    }
+
+    private stopTimer() {
+      this.timer = undefined;
+      this.sub.unsubscribe();
+      this.minutesDisplay = 0;
+      this.hoursDisplay = 0;
+      this.secondsDisplay = 0;
+    }
 
   timestamp: Timestamp = {
     end_time: '',
@@ -30,6 +76,7 @@ export class TimeTrackerComponent implements OnInit {
   startCounter() {
     let currentDate = new Date();
     this.startDate = currentDate;
+    this.startTimer();
   }
 
   // stopCounter() {
@@ -59,6 +106,7 @@ export class TimeTrackerComponent implements OnInit {
         this.dbService.addTimestamp(this.timestamp);
         this.startDate = undefined;
         this.endDate = undefined;
+        this.stopTimer();
     }
   }
 
