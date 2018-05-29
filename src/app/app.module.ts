@@ -1,19 +1,58 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CdkTableModule } from '@angular/cdk/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule
+} from '@angular/material';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { ChartModule } from 'angular-highcharts';
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import {DailyToDoComponent} from'./components/daily-to-do/daily-to-do.component';
 import { NgbdModalComponent } from './ngb-modal/modal.component';
 import { NgbdDatepickerPopupComponent } from './ngb-datepicker/datepicker-popup.component';
 import { NgbdTimepickerMeridianComponent } from './ngb-timepicker/timepicker-meridian.component';
@@ -36,7 +75,12 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     DashboardComponent,
     SidenavComponent,
+<<<<<<< HEAD
     ChartComponent,
+=======
+    DatepickerComponent,
+    DailyToDoComponent,
+>>>>>>> 20aae2db4a6b406d03778653624f52d5f588ca33
 	NgbdModalComponent,
 	NgbdDatepickerPopupComponent,
     NgbdTimepickerMeridianComponent,
@@ -48,10 +92,44 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
 	ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
+	MatAutocompleteModule,
+	MatButtonModule,
+	MatButtonToggleModule,
+	MatCardModule,
+	MatCheckboxModule,
+	MatChipsModule,
+	MatDatepickerModule,
+	MatDialogModule,
+	MatDividerModule,
+	MatExpansionModule,
+	MatGridListModule,
+	MatIconModule,
+	MatInputModule,
+	MatListModule,
+	MatMenuModule,
+	MatNativeDateModule,
+	MatPaginatorModule,
+	MatProgressBarModule,
+	MatProgressSpinnerModule,
+	MatRadioModule,
+	MatRippleModule,
+	MatSelectModule,
+	MatSidenavModule,
+	MatSliderModule,
+	MatSlideToggleModule,
+	MatSnackBarModule,
+	MatSortModule,
+	MatStepperModule,
+	MatTableModule,
+	MatTabsModule,
+	MatToolbarModule,
+	MatTooltipModule,
     HttpModule,
     ChartModule,
 	HttpClientModule,
