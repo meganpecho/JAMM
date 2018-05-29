@@ -8,6 +8,6 @@ interface AuthConfig {
 
 export const AUTH_CONFIG: AuthConfig = {
   clientID: environment.CLIENTID,
-  domain: environment.DOMAINn,
+  domain: environment.DOMAIN,
   callbackURL: environment.CALLBACKURL
 };
