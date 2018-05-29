@@ -10,12 +10,24 @@ import { Timestamp } from '../models/timestamp';
 export class TimeTrackerComponent implements OnInit {
   // "timestamps" will be acccessible from the HTML template
   timestamps: Timestamp[];
+  startDate;
+  endDate;
+  difference = 0;
 
+  startCounter() {
+    let currentDate = new Date();
+    this.startDate = currentDate;
+  }
+
+  stopCounter() {
+    let currentDate = new Date();
+    this.endDate = currentDate;
+    this.difference = this.endDate - this.startDate;
+  }
   constructor(private timestampService: DbConnectService) { }
 
   ngOnInit() {
     this.timestampService.getTimestamps().subscribe(timestamps => {
-        // console.log(timestamps);
         this.timestamps = timestamps;
     });
   }

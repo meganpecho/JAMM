@@ -2,6 +2,15 @@
 <br>
 <br>
 
+<p> Counter started at: {{ startDate }} </p>
+<p> Counter stopped at: {{ endDate }} </p>
+
+<p> Time elapsed: {{ difference }} ms. </p>
+
+<button (click)="startCounter()"> Start </button>
+<button (click)="stopCounter()"> Stop </button>
+
+<br><br>
 <div *ngIf="timestamps?.length > 0; else noTimestampsTemplate">
   <ul *ngFor="let timestamp of timestamps">
     <li> <strong> Start time: </strong> {{ timestamp.start_time }}</li>
