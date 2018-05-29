@@ -5,12 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import { ChartModule } from 'angular-highcharts';
-=======
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { AppRoutingModule } from './app-routing.module';
->>>>>>> 54b9b15b7c8a8a56c62803a067dc2aabd73ed083
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -23,12 +20,10 @@ import { NgbdTimepickerMeridianComponent } from './ngb-timepicker/timepicker-mer
 import { FullCalendarComponent } from './full-calendar/full-calendar.component'
 
 import { AuthService } from './auth/auth.service';
-<<<<<<< HEAD
 import { ChartComponent } from './chart/chart.component';
 
-=======
-import { EventSesrvice } from './full-calendar/event.service';
->>>>>>> 54b9b15b7c8a8a56c62803a067dc2aabd73ed083
+import { EventService } from './full-calendar/event.service';
+import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +32,12 @@ import { EventSesrvice } from './full-calendar/event.service';
     NavbarComponent,
     DashboardComponent,
     SidenavComponent,
-<<<<<<< HEAD
-    ChartComponent
-=======
+    ChartComponent,
 	NgbdModalComponent,
 	NgbdDatepickerPopupComponent,
     NgbdTimepickerMeridianComponent,
-    FullCalendarComponent
->>>>>>> 54b9b15b7c8a8a56c62803a067dc2aabd73ed083
+    FullCalendarComponent,
+    CalendarModalComponent
   ],
   imports: [
     BrowserModule,
@@ -52,15 +45,12 @@ import { EventSesrvice } from './full-calendar/event.service';
 	ReactiveFormsModule,
     AppRoutingModule,
     HttpModule,
-<<<<<<< HEAD
-    ChartModule
-=======
+    ChartModule,
 	HttpClientModule,
     NgbModule.forRoot(),
     FullCalendarModule
->>>>>>> 54b9b15b7c8a8a56c62803a067dc2aabd73ed083
   ],
-  providers: [AuthService, EventSesrvice],
+  providers: [AuthService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

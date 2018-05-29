@@ -3,7 +3,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'ngbd-modal',
-  templateUrl: './modal.component.html'
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss']
 })
 export class NgbdModalComponent implements OnInit{
   closeResult: string;
@@ -11,7 +12,7 @@ export class NgbdModalComponent implements OnInit{
   constructor(private modalService: NgbModal) {}
 
   open(content:any) {
-    this.modalService.open(content).result.then((result) => {
+    this.modalService.open(content, { size: 'lg' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -27,7 +28,7 @@ export class NgbdModalComponent implements OnInit{
       return  `with: ${reason}`;
     }
   }
-  
+
   ngOnInit() {
   }
 }

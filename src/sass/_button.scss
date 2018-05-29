@@ -1,7 +1,6 @@
-/*
 @import './mixins';
 
-.btn {
+.btns {
     border: 3px solid;
     border-radius: 2px;
     width: 180px;
@@ -12,6 +11,9 @@
     font-weight: 700;
     transition: all .2s linear;
     box-shadow: 1px 1px 5px #aaaaaa;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
     &:hover {
         cursor: pointer;
     }
@@ -34,13 +36,25 @@
             border-color: lighten($jumbotron, 20%);
         }
     }
+    &-nav {
+        border-color: white;
+        background-color: transparent;
+        color: white;
+        &:hover {
+            background-color: lighten($jumbotron, 20%);
+            border-color: lighten($jumbotron, 20%);
+            color: white;
+            box-shadow: unset;
+        }
+    }
 }
-*/
 
-.icon-btn {
+
+.icon-btns {
     background-color: transparent;
     border: none;
     padding: 2px;
+    width: 25px;
     .material-icons {
         &.md-24 {
             font-size: 28px;

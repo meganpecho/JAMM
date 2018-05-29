@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
-import { EventSesrvice } from './event.service';
+import { EventService } from './event.service';
 
 @Component({
   selector: 'full-calendar',
@@ -12,7 +12,7 @@ export class FullCalendarComponent implements OnInit  {
   calendarOptions: Options;
  displayEvent: any;
   @ViewChild(CalendarComponent) ucCalendar: CalendarComponent;
-  constructor(protected eventService: EventSesrvice) { }
+  constructor(protected eventService: EventService) { }
 
   ngOnInit() {
     this.eventService.getEvents().subscribe(data => {

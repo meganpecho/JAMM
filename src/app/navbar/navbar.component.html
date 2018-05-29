@@ -10,8 +10,8 @@
 			<li><a routerLink="" target="_blank">About</a></li>
 			<li><a routerLink="" target="_blank">FAQ</a></li>
 			<li><a routerLink="" target="_blank">Contact</a></li>
-			<li><div class="btn btn-nav" id="signin-nav-btn" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Sign In</div></li>
-			<li><div class="btn btn-nav" id="signout-nav-btn" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Sign Out</div></li>
+			<li><div class="btns btns-nav" id="signin-nav-btn" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Sign In</div></li>
+			<li><div class="btns btns-nav" id="signout-nav-btn" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Sign Out</div></li>
 		</ul>
 	</div>
 </div>
