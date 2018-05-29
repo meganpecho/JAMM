@@ -7,7 +7,7 @@ interface AuthConfig {
 }
 
 export const AUTH_CONFIG: AuthConfig = {
-  clientID: environment.clientID,
-  domain: environment.domain,
-  callbackURL: environment.callbackURL
+  clientID: environment.CLIENTID,
+  domain: environment.DOMAINn,
+  callbackURL: environment.CALLBACKURL
 };
