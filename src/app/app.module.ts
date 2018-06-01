@@ -52,7 +52,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 import { DatepickerComponent } from './datepicker/datepicker.component';
-import {DailyToDoComponent} from'./components/daily-to-do/daily-to-do.component';
+import { DailyToDoComponent } from'./daily-to-do/daily-to-do.component';
 import { NgbdModalComponent } from './ngb-modal/modal.component';
 import { NgbdDatepickerPopupComponent } from './ngb-datepicker/datepicker-popup.component';
 import { NgbdTimepickerMeridianComponent } from './ngb-timepicker/timepicker-meridian.component';
@@ -60,14 +60,15 @@ import { FullCalendarComponent } from './full-calendar/full-calendar.component'
 
 import { AuthService } from './auth/auth.service';
 import { ChartComponent } from './chart/chart.component';
-
+import { TaskService } from './task/task.service';
 import { EventService } from './full-calendar/event.service';
 import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
-import { TaskComponent } from './task/task.component';
+import { TaskFormComponent } from './task-form/task-form.component';
+import { TaskListComponent } from './task-list/task-list.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { TaskComponent } from './task/task.component';
     FaqComponent,
     ContactComponent,
     FooterComponent,
-    TaskComponent
+    TaskFormComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -135,7 +137,11 @@ import { TaskComponent } from './task/task.component';
     NgbModule.forRoot(),
     FullCalendarModule
   ],
-  providers: [AuthService, EventService],
+  exports: [
+      TaskFormComponent,
+      TaskListComponent
+  ],
+  providers: [AuthService, EventService, TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

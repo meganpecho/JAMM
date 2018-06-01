@@ -1,0 +1,12 @@
+<h3 *ngIf="isLoading"><i>Loading tasks ... </i></h3>
+<h3 *ngIf="!isLoading">Current tasks:</h3>
+
+<button type="button" (click)="getTasks()" class="btn btn-primary">Refresh</button>
+<a *ngFor="let task of tasks | async" (click)="select(hero)">{{task.name}}</a>
+
+<div *ngIf="selectedTask">
+    <hr>
+    <h2>Task Detail</h2>
+    <h3>Editing: {{selectedTask.name}}</h3>
+    <app-task-form [task]="selectedTask"></app-task-form>
+</div>
