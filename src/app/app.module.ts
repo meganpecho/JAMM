@@ -69,6 +69,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { TaskFormModalComponent } from './task-form-modal/task-form-modal.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { TaskListComponent } from './task-list/task-list.component';
     ContactComponent,
     FooterComponent,
     TaskFormComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskFormModalComponent
   ],
   imports: [
     BrowserAnimationsModule,

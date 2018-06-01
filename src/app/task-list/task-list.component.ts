@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable }        from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
-import { Task, tasks }        from '../task-form/task';
+import { Task, tasks }        from '../daily-to-do/task';
 import { TaskService } from '../task/task.service';
 
 @Component({
@@ -22,12 +22,8 @@ export class TaskListComponent implements OnInit {
     }
 
     getTasks() {
-        this.isLoading = true;
-        this.tasks = this.taskService.getTasks()
-            .pipe(finalize(() => this.isLoading = false));
-        this.selectedTask = undefined;
+        this.tasks = this.taskService.getTasks();
     }
 
-    select(task:Task) { this.selectedTask = task; }
 
 }

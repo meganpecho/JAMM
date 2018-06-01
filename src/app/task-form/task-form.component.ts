@@ -2,7 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { TaskService } from '../task/task.service';
-import { Task, tasks } from './task';
+import { Task, tasks } from '../daily-to-do/task';
 
 @Component({
   selector: 'app-task-form',

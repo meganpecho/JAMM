@@ -1,0 +1,32 @@
+@import '~sass/mixins';
+
+.task-grid {
+    width: 60%;
+    display: inline-flex;
+    .task {
+        width: 160px;
+        height: 160px;
+        margin: 5px;
+        display: flex;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+        box-shadow: 1px 1px 5px #aaaaaa;
+        background-color: $task;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+    }
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
