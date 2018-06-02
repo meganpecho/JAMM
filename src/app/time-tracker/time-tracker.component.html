@@ -2,6 +2,45 @@
 <br>
 <br>
 
+<h2 style="font-family: sans-serif; font-size: 36px"> {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} </h2>
+
+<!-- <button (click)="startCounter()"> Start </button> -->
+<!-- <button (click)="submitStopDate()" id="button-stop"> Stop </button> -->
+
+  <div class="icon-btns" (click)="startCounter()">
+    <i class="material-icons md-48">play_arrow</i> <span> Start </span>
+  </div>
+
+    <div class="icon-btns" (click)="submitStopDate()">
+      <i class="material-icons md-48">stop</i> <span> Stop </span>
+    </div>
+
+
+<br>
+<br>
+<br>
+
+<p> Counter started at: {{ startDate }} </p>
+<p> Counter stopped at: {{ endDate }} </p>
+
+<p> Time elapsed: {{ difference }} ms. </p>
+
+
+<br><br>
+<div *ngIf="timestamps?.length > 0; else noTimestampsTemplate">
+  <ul *ngFor="let timestamp of timestamps">
+    <!-- <li> <strong> ID: </strong> {{ timestamp.id }}</li> -->
+    <!-- <li> <strong> ID: </strong> {{ timestamp.id }}</li> -->
+    <li> <strong> Start time: </strong> {{ timestamp.start_time }}</li>
+    <li> <strong> End time: </strong> {{ timestamp.end_time }}</li>
+    <li> <strong> Elapsed time </strong> {{ timestamp.time_elapsed_sec }}</li>
+  </ul>
+  <br>
+</div>
+
+<ng-template #noTimestampsTemplate>
+  <p> There are no Timestamps to be retrieved :( </p>
+</ng-template>
 
 <h3> Add task </h3>
   <form (ngSubmit)="addNewTask()">
@@ -24,37 +63,6 @@
     <input type="submit" value="submit">
 
     </form>
-
-<br><br>
-
-
-<h2> {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} </h2>
-
-  <br>
-
-
-<p> Counter started at: {{ startDate }} </p>
-<p> Counter stopped at: {{ endDate }} </p>
-
-<p> Time elapsed: {{ difference }} ms. </p>
-
-<button (click)="startCounter()" id="button-start"> Start </button>
-<button (click)="submitStopDate()" id="button-stop"> Stop </button>
-
-<br><br>
-<div *ngIf="timestamps?.length > 0; else noTimestampsTemplate">
-  <ul *ngFor="let timestamp of timestamps">
-    <!-- <li> <strong> ID: </strong> {{ timestamp.id }}</li> -->
-    <li> <strong> Start time: </strong> {{ timestamp.start_time }}</li>
-    <li> <strong> End time: </strong> {{ timestamp.end_time }}</li>
-    <li> <strong> Elapsed time </strong> {{ timestamp.time_elapsed_sec }}</li>
-  </ul>
-  <br>
-</div>
-
-<ng-template #noTimestampsTemplate>
-  <p> There are no Timestamps to be retrieved :( </p>
-</ng-template>
 
 <br>
 <br>
