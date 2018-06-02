@@ -1,5 +1,5 @@
 <div class="nav" [ngClass]="{'activeNav': toggle}">
-	<div class="brandInfo"><div class="name">backlog</div></div>
+	<div class="brandInfo"><a routerLink="/landing" target="_self"><div class="name">backlog</div></a></div>
 	<div class="menu-btn">
 		<div class="menu-toggle" (click)="toggleMenu()" [ngClass]="{'active': toggle}">
 			<span class="bars"></span>
@@ -7,11 +7,11 @@
 	</div>
 	<div class="links">
 		<ul>
-			<li><a routerLink="" target="_blank">About</a></li>
-			<li><a routerLink="" target="_blank">FAQ</a></li>
-			<li><a routerLink="" target="_blank">Contact</a></li>
-			<li><button class="btn btn-nav" id="signup-nav-btn" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Sign In</button></li>
-			<li><button class="btn btn-nav" id="signout-nav-btn" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Sign Out</button></li>
+			<li><a routerLink="/about" target="_self" (click)="toggleMenu()" [ngClass]="{'active': toggle}">About</a></li>
+			<li><a routerLink="/faq" target="_self" (click)="toggleMenu()" [ngClass]="{'active': toggle}">FAQ</a></li>
+			<li><a routerLink="/contact" target="_self" (click)="toggleMenu()" [ngClass]="{'active': toggle}">Contact</a></li>
+			<li><div class="btns btns-nav" id="signin-nav-btn" *ngIf="!auth.isAuthenticated()" (click)="auth.login()" (click)="toggleMenu()" [ngClass]="{'active': toggle}">Sign In</div></li>
+			<li><div class="btns btns-nav" id="signout-nav-btn" *ngIf="auth.isAuthenticated()" (click)="auth.logout()" (click)="toggleMenu()" [ngClass]="{'active': toggle}">Sign Out</div></li>
 		</ul>
 	</div>
 </div>

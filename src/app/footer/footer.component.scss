@@ -1,0 +1,14 @@
+@import "~sass/mixins";
+
+.footer {
+	background-color: $jumbotron;
+	height: 50px;
+	display: flex;
+	justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    p.light {
+        color: white;
+        margin-bottom: 0;
+    }
+}

@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  CLIENTID: '1xeExBwmulevpJB508a6w8Xq7LpdLMHC',
+  DOMAIN: 'backlogjamm.auth0.com',
+  CALLBACKURL: 'http://localhost:4200/dashboard'
 };

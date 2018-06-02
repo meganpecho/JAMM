@@ -1,0 +1,38 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Add Task</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label class="center-block" for="name">Name:
+                    <input type="text" class="form-control" formControlName="name" name="name" maxLength="20">
+                    <!-- <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div *ngIf="name.errors.required">
+                            Name is required.
+                        </div>
+                    </div> -->
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="center-block">Description:
+                    <textarea class="form-control" formControlName="description"rows="3" maxLength="50"></textarea>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="center-block">Estimated time to complete:
+                    <input type="number" min="0" max="1000" class="form-control" formControlName="estimatedTime">
+                </label>
+            </div>
+            <button type="button"  [disabled]="taskForm.pristine" class="btn btn-success">Create Task</button>
+        </form>
+
+
+    </div>
+</ng-template>
+
+<div class="icon-btns" (click)="open(content)" title="Add Task"><i class="material-icons md-28 md-dark">library_add</i></div>
+
+<h4>Name change log</h4>
+<div *ngFor="let name of nameChangeLog">{{name}}</div>
