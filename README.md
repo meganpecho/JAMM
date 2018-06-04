@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## HOW TO RUN THIS PROJECT:
+Step 1: git clone the repo
+
+Step 2: cd into the repo folder and run `npm install`
+
+Step 3: run `export NODE_ENV=dev`
+
+Step 4: run `node server`
+
+Step 5: open a new terminal window, and run `ng serve`
+
+Step 6: open your browser and visit: localhost:4200 (and login w/ Google please)
