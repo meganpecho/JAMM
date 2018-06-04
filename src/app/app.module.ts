@@ -70,6 +70,8 @@ import { FooterComponent } from './footer/footer.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormModalComponent } from './task-form-modal/task-form-modal.component';
+import { ApiService } from './core/api.service';
+import { TestingApiComponent } from './core/testing-api/testing-api.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,8 @@ import { TaskFormModalComponent } from './task-form-modal/task-form-modal.compon
     FooterComponent,
     TaskFormComponent,
     TaskListComponent,
-    TaskFormModalComponent
+    TaskFormModalComponent,
+    TestingApiComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -143,7 +146,7 @@ import { TaskFormModalComponent } from './task-form-modal/task-form-modal.compon
       TaskFormComponent,
       TaskListComponent
   ],
-  providers: [AuthService, EventService, TaskService],
+  providers: [AuthService, EventService, TaskService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

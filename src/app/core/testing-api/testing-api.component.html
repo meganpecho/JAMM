@@ -1,0 +1,23 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3> Beginining tasks:</h3>
+<!-- testing iteration of components -->
+<a *ngFor="let task of tasks" [routerLink]="['/task', task._id]">
+<!-- <a *ngFor="let task of tasks"> -->
+  <div>
+    <h4>{{task.name}} </h4>
+    <p>Description: {{task.description}} </p>
+    <p>Created at: {{task.createdAtDate}} </p>
+    <p>Task id: {{task._id}} </p>
+    <p>Owned by: {{task.userId}} </p>
+    <p>Completed?: {{task.completed}} </p>
+
+  </div>
+</a>
