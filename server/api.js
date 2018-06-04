@@ -88,6 +88,36 @@ module.exports = function(app, config) {
       );
     });
 
+  // POST a new task
+    app.post('/api/task/new', (req, res) => {
+      Task.findOne({
+        name: req.body.name,
+        createdAtDate: req.body.createdAtDate}, (err, existingTask) => {
+        if (err) {
+          return res.status(500).send({message: err.message});
+        }
+        if (existingTask) {
+          return res.status(409).send({message: 'You have already created a task with this title and start time'});
+        }
+        const task = new Task({
+          userId: "userId_will_go_here",
+          name: req.body.name,
+          description: req.body.description,
+          createdAtDate: new Date(),
+          completedAtDate: undefined,
+          totalTimeWorkedMins: 0,
+          estimatedTimeMins: req.body.estimatedTimeMins,
+          completed: req.body.completed
+        });
+        task.save((err) => {
+          if (err) {
+            return res.status(500).send({message: err.message});
+          }
+          res.send(task);
+        });
+      });
+    });
+
   // NOT WORKING // GET list of all tasks in the DB (no authentication required)
   //   app.get('/api/tasks', jwtCheck, (req, res) => {
   //     Task.find((err, tasks) => {
