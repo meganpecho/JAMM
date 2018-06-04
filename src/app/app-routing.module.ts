@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthGuard } from './auth/auth.guard'
+import { TestingApiComponent } from './core/testing-api/testing-api.component';
 
 const routes:Routes = [
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -16,7 +17,9 @@ const routes:Routes = [
     { path: 'faq', component: FaqComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard] },
+    { path: 'testingapi', component: TestingApiComponent },
     { path: '**', redirectTo: '' }
+
 ];
 
 @NgModule({
