@@ -50,6 +50,18 @@ export class ApiService {
       );
   }
 
+  // POST new event (Auth Required)
+  createNewTask(task: Task): Observable<Task> {
+    return this.http
+      .post<Task>(`${ENV.BASE_API}task/new`, task, {
+        headers: new HttpHeaders().set('Authorization', this._authHeader)
+      })
+      .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  }
+
+  // Error handling
   private _handleError(err: HttpErrorResponse | any): Observable<any> {
     const errorMsg = err.message || 'Error: Unable to complete request.';
     if (err.message && err.message.indexOf('No JWT present') > -1) {
