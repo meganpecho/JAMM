@@ -14,4 +14,4 @@ const taskSchema = new Schema({
   completed: { type: Boolean, required: true }
 });
 
-module.exports = mongoose.model('Task', eventSchema);
+module.exports = mongoose.model('Task', taskSchema);

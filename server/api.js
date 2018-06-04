@@ -7,7 +7,7 @@
 
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
-
+const Task = require('./models/Task');
 /*
  |--------------------------------------
  | Authentication Middleware
@@ -38,5 +38,22 @@ module.exports = function(app, config) {
   app.get('/api/', (req, res) => {
     res.send('API workssss');
   });
+
+  // GET list of all tasks in the DB (no authentication required)
+    app.get('/api/tasks', (req, res) => {
+      Task.find((err, tasks) => {
+          let tasksArray = [];
+          if (err) {
+            return res.status(500).send({message: err.message});
+          }
+          if (tasks) {
+            tasks.forEach(task => {
+              tasksArray.push(task);
+            });
+          }
+          res.send(tasksArray);
+        }
+      );
+    });
 
 };
