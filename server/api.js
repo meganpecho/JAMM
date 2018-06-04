@@ -69,6 +69,25 @@ module.exports = function(app, config) {
     });
   });
 
+  // GET all tasks of an individual user given their userId (no authentication required)
+    app.get('/api/tasks/:id', (req, res) => {
+      Task.find((err, tasks) => {
+          let tasksArray = [];
+          if (err) {
+            return res.status(500).send({message: err.message});
+          }
+          if (tasks) {
+            tasks.forEach(task => {
+              if (task.userId == req.params.id ) {
+                tasksArray.push(task);
+              }
+            });
+          }
+          res.send(tasksArray);
+        }
+      );
+    });
+
   // NOT WORKING // GET list of all tasks in the DB (no authentication required)
   //   app.get('/api/tasks', jwtCheck, (req, res) => {
   //     Task.find((err, tasks) => {
