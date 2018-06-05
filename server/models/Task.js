@@ -9,8 +9,9 @@ const taskSchema = new Schema({
   description: { type: String, required: false },
   createdAtDate: { type: Date, required: true },
   completedAtDate: { type: Date, required: false },
-  totalTimeWorkedMins: { type: Number, required: false },
-  estimatedTimeMins: { type: Number, required: false },
+  actualTime: { type: Number, required: false },
+  estimatedTime: { type: Number, required: false },
+  inProgress: { type: Number, required: false },
   completed: { type: Boolean, required: true }
 });
 
