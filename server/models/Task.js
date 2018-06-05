@@ -11,7 +11,7 @@ const taskSchema = new Schema({
   completedAtDate: { type: Date, required: false },
   actualTime: { type: Number, required: false },
   estimatedTime: { type: Number, required: false },
-  inProgress: { type: Number, required: false },
+  inProgress: { type: Boolean, required: false },
   completed: { type: Boolean, required: true }
 });
 

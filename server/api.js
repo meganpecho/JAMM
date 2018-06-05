@@ -105,8 +105,9 @@ module.exports = function(app, config) {
           description: req.body.description,
           createdAtDate: new Date(),
           completedAtDate: undefined,
-          totalTimeWorkedMins: 0,
-          estimatedTimeMins: req.body.estimatedTimeMins,
+          actualTime: 0,
+          estimatedTime: req.body.estimatedTime,
+          inProgress: false,
           completed: req.body.completed
         });
         task.save((err) => {
@@ -117,24 +118,5 @@ module.exports = function(app, config) {
         });
       });
     });
-
-  // NOT WORKING // GET list of all tasks in the DB (no authentication required)
-  //   app.get('/api/tasks', jwtCheck, (req, res) => {
-  //     Task.find((err, tasks) => {
-  //         let tasksArray = [];
-  //         if (err) {
-  //           return res.status(500).send({message: err.message});
-  //         }
-  //         if (tasks) {
-  //           tasks.forEach(task => {
-  //             tasksArray.push(task);
-  //           });
-  //         }
-  //         res.send(tasksArray);
-  //       }
-  //     );
-  //   });
-
-
 
 };
