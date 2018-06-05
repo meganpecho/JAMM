@@ -1,5 +1,5 @@
-// The '?' operator defines an optional field
-// Everything else is required
+// This is the final version of the Task Model.
+// Please revise your code according to these variables and names
 
 export class Task {
   constructor(
@@ -15,3 +15,5 @@ export class Task {
     public _id?: string,
   ) { }
 }
+
+export const tasks:Task[] = [];
