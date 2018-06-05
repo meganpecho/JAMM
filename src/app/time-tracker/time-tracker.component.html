@@ -1,0 +1,16 @@
+<div class="time-tracker">
+  <h2 style="font-family: sans-serif; font-size: 36px"> {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} </h2>
+
+    <div class="icon-btns" (click)="startCounter()">
+      <i class="material-icons md-48">play_arrow</i> <span> Start </span>
+    </div>
+
+      <div class="icon-btns" (click)="submitStopDate()">
+        <i class="material-icons md-48">stop</i> <span> Stop </span>
+      </div>
+
+      <p> Counter started at: {{ startDate }} </p>
+      <p> Counter stopped at: {{ endDate }} </p>
+      <p> Time elapsed: {{ time_elapsed_msec }} ms ({{minutes }} minutes.) </p>
+
+</div>
