@@ -71,7 +71,6 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormModalComponent } from './task-form-modal/task-form-modal.component';
 import { ApiService } from './core/api.service';
-import { TestingApiComponent } from './core/testing-api/testing-api.component';
 import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
 
 @NgModule({
@@ -96,7 +95,6 @@ import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
     TaskFormComponent,
     TaskListComponent,
     TaskFormModalComponent,
-    TestingApiComponent,
     TimeTrackerComponent
   ],
   imports: [
