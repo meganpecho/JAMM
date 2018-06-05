@@ -1,0 +1,39 @@
+@import '~sass/mixins';
+.time-tracker {
+    min-width: 300px;
+    height: 300px;
+    border: 1px solid #aaaaaa;
+    box-shadow: 1px 1px 5px #aaaaaa;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    .timer-container {
+        h4 {
+            color: $timer;
+            font-weight: 700;
+            font-size: 40px;
+        }
+    }
+    .current-task {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        .task {
+            width: 180px;
+            height: 180px;
+            margin: 5px;
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            .task-info {
+                display: flex;
+                flex-flow: column nowrap;
+                min-height: 125px;
+            }
+        }
+    }
+}

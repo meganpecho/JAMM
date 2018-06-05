@@ -13,10 +13,12 @@ import { FullCalendarComponent } from '../full-calendar/full-calendar.component'
   providers: [{provide: NgbDateParserFormatter, useClass: NgbDateUSParserFormatter}]
 })
 export class DashboardComponent implements OnInit {
+    today:Date;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.today = new Date();
+    }
 
 }

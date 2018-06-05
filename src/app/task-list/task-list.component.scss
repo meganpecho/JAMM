@@ -1,11 +1,23 @@
 @import '~sass/mixins';
 
+.tasks-and-timer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    .tasks-section {
+        float: left;
+    }
+    .timer-section {
+        float: right;
+    }
+}
 .task-grid {
-    width: 60%;
+    width: 80%;
     display: inline-flex;
+    flex-flow: row wrap;
     .task {
-        width: 160px;
-        height: 160px;
+        width: 180px;
+        height: 180px;
         margin: 5px;
         display: flex;
         padding: 10px;
@@ -15,6 +27,11 @@
         display: flex;
         flex-flow: column nowrap;
         justify-content: flex-start;
+        .task-info {
+            display: flex;
+            flex-flow: column nowrap;
+            min-height: 125px;
+        }
         .btn-container {
             display: flex;
             justify-content: center;

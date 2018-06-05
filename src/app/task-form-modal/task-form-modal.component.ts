@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { TaskService } from '../task/task.service';
-import { Task } from '../daily-to-do/task';
+import { ApiService } from '../core/api.service';
+// import { TaskService } from '../task/task.service';
+import { Task } from '../core/models/task';
 
 @Component({
   selector: 'app-task-form-modal',
@@ -11,10 +12,10 @@ import { Task } from '../daily-to-do/task';
 export class TaskFormModalComponent implements OnInit {
 
     closeResult:string;
-    task:Task = new Task('', '', 0);
+    task:Task = new Task('', new Date(), false);
     modalReference:any;
 
-    constructor(private taskService:TaskService, private modalService: NgbModal) {}
+    constructor(private api: ApiService, private modalService: NgbModal) {}
 
     open(content:any):void {
         this.modalReference = this.modalService.open(content, { size: 'lg' });
@@ -50,9 +51,8 @@ export class TaskFormModalComponent implements OnInit {
             complete: () => console.log('Observer got a complete notification')
         };
         const formData = Object.assign({}, formValue);
-        let random = Math.floor(Math.random() * (999999 - 100000)) + 100000;
         this.task = this.prepareSaveTask(formData);
-        this.taskService.updateTask(this.task).subscribe(taskObserver);
+        this.api.createNewTask(this.task).subscribe(taskObserver);
 
         form.reset();
         this.close();
@@ -63,17 +63,16 @@ export class TaskFormModalComponent implements OnInit {
     }
 
     prepareSaveTask(formValue):Task {
-        let random = Math.floor(Math.random() * (999999 - 100000)) + 100000;
         const formData = formValue;
-        let idInfo = formData.name + String(random);
         const saveTask:Task = {
-            id: idInfo as string,
             name: formData.name as string,
+            createdAtDate: new Date() as Date,
             description: formData.description as string,
             estimatedTime: formData.estimatedTime as number,
             actualTime: 0,
             inProgress: false,
             completed: false,
+            userId: 'megan' as string
         };
 
         return saveTask;

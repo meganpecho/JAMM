@@ -1,9 +1,14 @@
 <div class=dashboard-content>
     <app-sidenav></app-sidenav>
     <div class="dashboard-sections">
+        <div class="today">
+            <h2>{{today | date:'EEEE, MMMM d, y'}}</h2>
+            <hr/>
+        </div>
+
         <app-task-list></app-task-list>
 
-        <div class="ngb-timepicker"><ngbd-timepicker-meridian></ngbd-timepicker-meridian></div>
-        <div class="ngb-datepicker"><ngbd-datepicker-popup></ngbd-datepicker-popup></div>
+        <!-- <div class="ngb-timepicker"><ngbd-timepicker-meridian></ngbd-timepicker-meridian></div>
+        <div class="ngb-datepicker"><ngbd-datepicker-popup></ngbd-datepicker-popup></div> -->
     </div>
 </div>

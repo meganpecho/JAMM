@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subscription } from 'rxjs/Rx';
+import { Task } from '../core/models/task';
+import { ApiService } from '../core/api.service';
 
 @Component({
   selector: 'app-time-tracker',
@@ -7,19 +9,23 @@ import { Observable, Subscription } from 'rxjs/Rx';
   styleUrls: ['./time-tracker.component.scss']
 })
 export class TimeTrackerComponent implements OnInit {
-  startDate;
-  endDate;
-  time_elapsed_msec = 0;
-  minutes;
-  ticks = 0;
-  minutesDisplay: number = 0;
-  hoursDisplay: number = 0;
-  secondsDisplay: number = 0;
-  sub: Subscription;
-  timer;
+    @Input('task') task:Task;
+    startDate;
+    endDate;
+    time_elapsed_msec = 0;
+    minutes;
+    ticks = 0;
+    minutesDisplay: number = 0;
+    hoursDisplay: number = 0;
+    secondsDisplay: number = 0;
+    sub: Subscription;
+    timer;
+
+    constructor( private api: ApiService ) { }
 
 
-  private startTimer() {
+
+    private startTimer() {
         this.timer = Observable.timer(1, 1000);
         this.sub = this.timer.subscribe(
             t => {
@@ -56,8 +62,6 @@ export class TimeTrackerComponent implements OnInit {
       this.secondsDisplay = 0;
     }
 
-  constructor() { }
-
   ngOnInit() { }
 
   startCounter() {
@@ -76,5 +80,9 @@ export class TimeTrackerComponent implements OnInit {
         this.minutes = (this.time_elapsed_msec / 60000).toFixed(4);
         this.stopTimer();
     }
+  }
+
+  shouldStartTimer(started:boolean) {
+      if (started) { this.startCounter(); }
   }
 }
