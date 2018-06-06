@@ -3,13 +3,12 @@
         <h3>Current tasks: <app-task-form-modal></app-task-form-modal></h3>
         <!-- <div *ngFor="let task of tasks | async">{{task.name}}, {{task.estimatedTime}}</div> -->
         <div class="task-grid">
-            <div *ngFor="let task of tasks | async">
+            <div *ngFor="let task of tasks">
                 <div class="task">
                     <div class="task-info">
                         <h6>{{task.name}}</h6>
                         <p>{{task.description}}</p>
-                        <p>Est. Time: {{task.estimatedTime}}</p>
-                        <p *ngIf="completed">Actual Time: {{task.actualTime}}</p>
+                        <p>Est. Time: {{task.estimatedTime}} mins</p>
                     </div>
                     <div class="btn-container">
                         <div class="btns btns-secondary" *ngIf="!task.inProgress" (click)="startTask(task._id)">Start</div>
@@ -19,5 +18,44 @@
             </div>
         </div>
     </div>
-    <div class="timer-section"><app-time-tracker *ngIf="taskInProgress" [task]="taskInProgress" (isStarted)="shouldStartTimer(true)"></app-time-tracker></div>
+    <div class="timer-section" >
+        <div class="time-tracker" *ngIf="taskInProgress">
+            <div class="timer-container">
+                <h4 class="timer">
+                    {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}}
+                </h4>
+                <div class="btn-container">
+                    <div class="icon-btns" *ngIf="!taskTimerStarted" (click)="startCounter()"><i class="material-icons md-24 md-dark">play_arrow</i></div>
+                    <div class="icon-btns" *ngIf="taskTimerStarted" (click)="submitStopDate()"><i class="material-icons md-24 md-dark">stop</i></div>
+                </div>
+                <hr/>
+            </div>
+            <div class="current-task">
+                <div class="task">
+                    <div class="task-info">
+                        <h6 class="titled">Current Task: </h6><h6>{{selectedTask?.name}}</h6>
+                        <p>{{selectedTask?.description}}</p>
+                        <p>Est. Time: {{selectedTask?.estimatedTime}} mins</p>
+                        <p *ngIf="completed">Actual Time: {{selectedTask?.actualTime}} mins</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="completed-tasks">
+    <h3>Completed tasks: </h3>
+    <div class="task-grid">
+        <div *ngFor="let task of tasks">
+            <div class="task">
+                <div class="task-info">
+                    <h6>{{task.name}}</h6>
+                    <p>{{task.description}}</p>
+                    <p>Est. Time: {{task.estimatedTime}} mins</p>
+                    <p>Actual Time: {{task.actualTime}} mins</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

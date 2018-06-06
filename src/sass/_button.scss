@@ -43,6 +43,7 @@
         border-color: white;
         background-color: transparent;
         color: white;
+        box-shadow: unset;
         &:hover {
             background-color: lighten($jumbotron, 20%);
             border-color: lighten($jumbotron, 20%);
@@ -66,6 +67,12 @@
             color: $icon;
             &:hover {
                 color: darken($icon, 20%);
+            }
+        }
+        &.md-dark {
+            color: black;
+            &:hover {
+                color: lighten(black, 20%);
             }
         }
     }

@@ -7,7 +7,7 @@
         <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm, taskForm.value);">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input [(ngModel)]="task.name" type="text" maxlength="18" class="form-control" id="name" name="name" required #taskName="ngModel">
+                <input [(ngModel)]="task.name" type="text" maxlength="20" class="form-control" id="name" name="name" required #taskName="ngModel">
                 <div *ngIf="taskName.invalid && taskName.touched" class="alert alert-danger">
                     Name is required.
                     <!-- [hidden]="taskName.valid || taskName.pristine" -->
@@ -20,12 +20,12 @@
             <div class="form-group">
                 <label for="estimatedTime">Estimated Time to Complete (minutes)</label>
                 <input [(ngModel)]="task.estimatedTime" type="number" value="0" min="0" max="1000" class="form-control" id="estimatedTime" name="estimatedTime" required #estimatedTime="ngModel">
-                <div *ngIf="taskName.invalid && taskName.touched && (estimatedTime.value < 0 || estimatedTime.value > 1000)" class="alert alert-danger">
+                <div *ngIf="taskName.invalid && taskName.touched || (estimatedTime.value < 0 || estimatedTime.value > 1000)" class="alert alert-danger">
                     Estimated Time must be between 0 and 1000.
                     <!-- [hidden]="estimatedTime.pristine || estimatedTime.valid || (estimatedTime.value >= 0 || estimatedTime.value <= 1000)" -->
                 </div>
             </div>
-            <button type="submit" class="btns btns-secondary" [disabled]="taskForm.invalid">Create</button>
+            <button type="submit" class="btns btns-secondary" [disabled]="taskForm.invalid || (estimatedTime.value < 0 || estimatedTime.value > 1000)">Create</button>
         </form>
     </div>
 </ng-template>

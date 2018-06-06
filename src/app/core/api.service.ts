@@ -22,12 +22,12 @@ export class ApiService {
 
   // GET list of all tasks in the DB (Auth required)
   getTasks(): Observable<Task[]> {
-    let tasks:Observable<Task[]> = this.http
+    let tasks = this.http
       .get<Task[]>(`${ENV.BASE_API}tasks`)
       .pipe(
         catchError((error) => this._handleError(error))
       );
-      return of(tasks);
+      return tasks;
   }
 
   // GET single task by task ID (Auth required)
@@ -56,7 +56,7 @@ export class ApiService {
 
   // POST new event (Auth Required)
   createNewTask(task: Task): Observable<Task> {
-    let newTask:Observable<Task> = this.http
+    let newTask = this.http
       .post<Task>(`${ENV.BASE_API}task/new`, task, {
         headers: new HttpHeaders().set('Authorization', this._authHeader)
       })

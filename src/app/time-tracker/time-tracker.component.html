@@ -1,22 +1,26 @@
-<div class="time-tracker">
+<!-- <div class="time-tracker">
     <div class="timer-container">
         <h4 class="timer">
             {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}}
         </h4>
+        <div class="btn-container">
+            <div class="icon-btns" *ngIf="!isStarted" (click)="startCounter()"><i class="material-icons md-24 md-dark">play_arrow</i></div>
+            <div class="icon-btns" *ngIf="isStarted" (click)="submitStopDate()"><i class="material-icons md-24 md-dark">stop</i></div>
+        </div>
+        <hr/>
     </div>
     <div class="current-task">
-        <h6>Current Task:</h6>
         <div class="task">
             <div class="task-info">
-                <h6>{{task.name}}</h6>
+                <h6 class="titled">Current Task: </h6><h6>{{task.name}}</h6>
                 <p>{{task.description}}</p>
-                <p>Est. Time: {{task.estimatedTime}}</p>
-                <p *ngIf="completed">Actual Time: {{task.actualTime}}</p>
+                <p>Est. Time: {{task.estimatedTime}} mins</p>
+                <p *ngIf="completed">Actual Time: {{task.actualTime}} mins</p>
             </div>
         </div>
     </div>
 
-    <!-- <div class="icon-btns" (click)="startCounter()">
+    <div class="icon-btns" (click)="startCounter()">
         <i class="material-icons md-48">play_arrow</i> <span> Start </span>
     </div>
 
@@ -26,6 +30,6 @@
 
     <p> Counter started at: {{ startDate }} </p>
     <p> Counter stopped at: {{ endDate }} </p>
-    <p> Time elapsed: {{ time_elapsed_msec }} ms ({{minutes }} minutes.) </p> -->
+    <p> Time elapsed: {{ time_elapsed_msec }} ms ({{minutes }} minutes.) </p>
 
-</div>
+</div> -->

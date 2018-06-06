@@ -20,6 +20,7 @@ export class TimeTrackerComponent implements OnInit {
     secondsDisplay: number = 0;
     sub: Subscription;
     timer;
+    isStarted:boolean = false;
 
     constructor( private api: ApiService ) { }
 
@@ -69,6 +70,7 @@ export class TimeTrackerComponent implements OnInit {
     this.endDate = undefined;   // reset endDate
     let currentDate = new Date();
     this.startDate = currentDate;
+    this.isStarted = true;
     this.startTimer();
   }
 
@@ -78,6 +80,7 @@ export class TimeTrackerComponent implements OnInit {
         this.endDate = currentDate;
         this.time_elapsed_msec = this.endDate - this.startDate;
         this.minutes = (this.time_elapsed_msec / 60000).toFixed(4);
+        this.isStarted = false;
         this.stopTimer();
     }
   }

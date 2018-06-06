@@ -9,22 +9,41 @@
     justify-content: center;
     align-items: center;
     .timer-container {
+        width: 90%;
+        display: flex;
+        margin: 20px 0px;
+        flex-flow: column;
+        align-items: center;
         h4 {
             color: $timer;
             font-weight: 700;
             font-size: 40px;
         }
+        .btn-container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-content: space-between;
+            .icon-btns {
+                margin: 0 15px;
+            }
+        }
+        hr {
+            width: 90%;
+            margin: 5px;
+        }
     }
     .current-task {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         justify-content: flex-start;
+        width: 90%;
+        .titled {
+            font-weight: 700;
+            text-decoration: underline;
+        }
         .task {
-            width: 180px;
-            height: 180px;
-            margin: 5px;
             display: flex;
-            padding: 10px;
             background-color: white;
             display: flex;
             flex-flow: column nowrap;
@@ -33,6 +52,10 @@
                 display: flex;
                 flex-flow: column nowrap;
                 min-height: 125px;
+            }
+            h6, p {
+                max-width: 290px;
+                word-wrap: break-word;
             }
         }
     }

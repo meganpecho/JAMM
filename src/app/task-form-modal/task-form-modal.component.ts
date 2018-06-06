@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from '../core/api.service';
 // import { TaskService } from '../task/task.service';
@@ -10,10 +11,14 @@ import { Task } from '../core/models/task';
   styleUrls: ['./task-form-modal.component.scss']
 })
 export class TaskFormModalComponent implements OnInit {
-
+    @Output() taskCreated = new EventEmitter<boolean>();
     closeResult:string;
     task:Task = new Task('', new Date(), false);
     modalReference:any;
+    tasks: Task[];
+    tasksListSub: Subscription;
+    error: boolean;
+    submittedTask:boolean = false;
 
     constructor(private api: ApiService, private modalService: NgbModal) {}
 
@@ -30,6 +35,8 @@ export class TaskFormModalComponent implements OnInit {
         this.modalReference.close();
     }
 
+    ngOnInit() {}
+
     private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
             return 'by pressing ESC';
@@ -40,7 +47,7 @@ export class TaskFormModalComponent implements OnInit {
         }
     }
 
-    ngOnInit() { }
+
 
     onSubmit(form, formValue:any) {
         console.log(formValue);
@@ -53,9 +60,12 @@ export class TaskFormModalComponent implements OnInit {
         const formData = Object.assign({}, formValue);
         this.task = this.prepareSaveTask(formData);
         this.api.createNewTask(this.task).subscribe(taskObserver);
-
+        this.submittedTask = true;
+        this.taskCreated.emit(this.submittedTask);
+        this.submittedTask = false;
         form.reset();
         this.close();
+
     }
 
     createTask(taskConfig:any) {
@@ -77,7 +87,5 @@ export class TaskFormModalComponent implements OnInit {
 
         return saveTask;
     }
-
-
 
 }
