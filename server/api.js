@@ -129,6 +129,7 @@ module.exports = function(app, config) {
           return res.status(400).send({message: 'Task not found'});
         }
         task.inProgress = true;
+        task.createdAtDate = new Date();
         task.save(err => {
           if (err) {
             return res.status(500).send({message: err.message});
@@ -152,7 +153,6 @@ module.exports = function(app, config) {
         let timeDifference = ((task.completedAtDate - task.createdAtDate) / 60000).toFixed(4)
         task.actualTime = timeDifference;
         task.inProgress = false;
-
         task.save(err => {
           if (err) {
             return res.status(500).send({message: err.message});
