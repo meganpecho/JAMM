@@ -119,4 +119,46 @@ module.exports = function(app, config) {
       });
     });
 
+    // PUT (update) task. Specifically, mark task as "in progress"
+    app.put('/api/taskprogress/:id', (req, res) => {
+      Task.findById(req.params.id, (err, task) => {
+        if (err) {
+          return res.status(500).send({message: err.message});
+        }
+        if (!task) {
+          return res.status(400).send({message: 'Task not found'});
+        }
+        task.inProgress = true;
+        task.save(err => {
+          if (err) {
+            return res.status(500).send({message: err.message});
+          }
+          res.send(task);
+        });
+      });
+    });
+
+    // PUT (update) task. Specifically, mark task as completed
+    app.put('/api/completetask/:id', (req, res) => {
+      Task.findById(req.params.id, (err, task) => {
+        if (err) {
+          return res.status(500).send({message: err.message});
+        }
+        if (!task) {
+          return res.status(400).send({message: 'Task not found'});
+        }
+        task.completed = true;
+        task.completedAtDate = new Date();
+        task.actualTime = req.body.actualTime;
+        task.inProgress = false;
+
+        task.save(err => {
+          if (err) {
+            return res.status(500).send({message: err.message});
+          }
+          res.send(task);
+        });
+      });
+    });
+
 };
