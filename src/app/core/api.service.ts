@@ -61,6 +61,28 @@ export class ApiService {
       );
   }
 
+  // PUT (edit) task, specifically mark task as "in progress"
+  markInProgress(id: string, task: Task): Observable<Task> {
+    return this.http
+      .put<Task>(`${ENV.BASE_API}taskprogress/${id}`, task, {
+        headers: new HttpHeaders().set('Authorization', this._authHeader)
+      })
+      .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  }
+
+  // Mark task as completed
+  markCompleted(id: string, task: Task): Observable<Task> {
+    return this.http
+      .put<Task>(`${ENV.BASE_API}completetask/${id}`, task, {
+        headers: new HttpHeaders().set('Authorization', this._authHeader)
+      })
+      .pipe(
+        catchError((error) => this._handleError(error))
+      );
+  }
+
   // Error handling
   private _handleError(err: HttpErrorResponse | any): Observable<any> {
     const errorMsg = err.message || 'Error: Unable to complete request.';
