@@ -149,7 +149,8 @@ module.exports = function(app, config) {
         }
         task.completed = true;
         task.completedAtDate = new Date();
-        task.actualTime = req.body.actualTime;
+        let timeDifference = ((task.completedAtDate - task.createdAtDate) / 60000).toFixed(4)
+        task.actualTime = timeDifference;
         task.inProgress = false;
 
         task.save(err => {
