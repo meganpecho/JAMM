@@ -38,6 +38,8 @@ Step 8: Repeat with other tasks if you wish. This order of operations is pretty 
 
 PS - We really tried our very hardest. This was a big learning experience and as much as we tried to keep the scope small, we ended up being over-ambitious.
 
+Link to [Heroku](https://backlogjamm.herokuapp.com/). It mostly works except for the timer, which is strange because the timer works locally. This was more of an experiment than actually necessary.
+
 ---
 
 ## Development server
