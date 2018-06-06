@@ -70,6 +70,8 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormModalComponent } from './task-form-modal/task-form-modal.component';
 import { ApiService } from './core/api.service';
 import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
+import { TaskStatusPipe } from './task-status.pipe';
+import { TaskCompletedPipe } from './task-completed.pipe';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,9 @@ import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
     FooterComponent,
     TaskListComponent,
     TaskFormModalComponent,
-    TimeTrackerComponent
+    TimeTrackerComponent,
+    TaskStatusPipe,
+    TaskCompletedPipe
   ],
   imports: [
     BrowserAnimationsModule,

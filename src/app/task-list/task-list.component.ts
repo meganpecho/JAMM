@@ -1,20 +1,22 @@
-import { Component, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
-import { Observable }        from 'rxjs';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { Subscription } from 'rxjs/Subscription';
 import { ApiService } from '../core/api.service';
-import { Task, tasks } from '../core/models/task';
+import { Task, t } from '../core/models/task';
 import { TimeTrackerComponent } from '../time-tracker/time-tracker.component'
-// import { TaskService } from '../task/task.service';
-
+import { TaskService } from '../task/task.service';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { TaskStatusPipe } from '../task-status.pipe';
+import { TaskCompletedPipe } from '../task-completed.pipe'
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss']
 })
-export class TaskListComponent implements OnInit, OnChanges {
+export class TaskListComponent implements OnInit {
     // isStarted:boolean;
-    tasks: Task[] = tasks;
+    tasks: Task[];
     tasksListSub: Subscription;
     error: boolean;
     selectedTaskSub: Subscription;
@@ -41,21 +43,18 @@ export class TaskListComponent implements OnInit, OnChanges {
         this.getTasks();
     }
 
-    ngOnChanges() {
-        this.getTasks();
-    }
-
     getTasks() {
         this.tasksListSub = this.api.getTasks()
             .subscribe(
                 res => {
-                    this.tasks = res;
-                    // console.log(this.tasks);
+                    this.tasks =  res
+
                 },
                 err => {
                     console.error(err);
                     this.error = true;
             });
+            // console.log(this.tasks);
     }
 
     ngOnDestroy() {
@@ -63,20 +62,17 @@ export class TaskListComponent implements OnInit, OnChanges {
     }
 
     startTask(taskId:string) {
+        this.taskInProgress = true;
         this.selectedTaskSub = this.api.getTaskById(taskId)
             .subscribe(
                 res => {
-                    this.selectedTask = res;
+                    this.selectedTask = res
                   // console.log(this.tasks);
                 },
                 err => {
                     console.error(err);
                     this.error = true;
-                }
-            );
-
-        this.taskInProgress = true;
-
+                });
     }
 
     startCounter() {
@@ -85,6 +81,17 @@ export class TaskListComponent implements OnInit, OnChanges {
         let currentDate = new Date();
         this.startDate = currentDate;
         this.taskTimerStarted = true;
+        this.selectedTaskSub = this.api.markInProgress(this.selectedTask._id, this.selectedTask)
+            .subscribe(
+                res => {
+                    // this.selectedTask = res;
+                  console.log('marked in progress');
+                },
+                err => {
+                    console.error(err);
+                    this.error = true;
+                }
+            );
         this.startTimer();
     }
 
@@ -97,6 +104,17 @@ export class TaskListComponent implements OnInit, OnChanges {
             this.taskTimerStarted = false;
             this.taskInProgress = false;
             this.taskCompleted = true;
+            this.selectedTaskSub = this.api.markCompleted(this.selectedTask._id, this.selectedTask)
+                .subscribe(
+                    res => {
+                        // this.selectedTask = res;
+                      console.log('marked completed');
+                    },
+                    err => {
+                        console.error(err);
+                        this.error = true;
+                    }
+                );
             this.stopTimer();
         }
     }

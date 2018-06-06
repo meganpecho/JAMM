@@ -3,7 +3,7 @@
         <h3>Current tasks: <app-task-form-modal></app-task-form-modal></h3>
         <!-- <div *ngFor="let task of tasks | async">{{task.name}}, {{task.estimatedTime}}</div> -->
         <div class="task-grid">
-            <div *ngFor="let task of tasks">
+            <div *ngFor="let task of (tasks | taskStatus)">
                 <div class="task">
                     <div class="task-info">
                         <h6>{{task.name}}</h6>
@@ -11,8 +11,8 @@
                         <p>Est. Time: {{task.estimatedTime}} mins</p>
                     </div>
                     <div class="btn-container">
-                        <div class="btns btns-secondary" *ngIf="!task.inProgress" (click)="startTask(task._id)">Start</div>
-                        <div class="btns btns-secondary" *ngIf="task.inProgress" (click)="completeTask(task._id)">Complete</div>
+                        <div class="btns btns-secondary" *ngIf="!task.inProgress" (click)="taskInProgress ? null : startTask(task._id)">Start</div>
+                        <div class="btns btns-tertiary" disabled *ngIf="task.inProgress">In Progress</div>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
 <div class="completed-tasks">
     <h3>Completed tasks: </h3>
     <div class="task-grid">
-        <div *ngFor="let task of tasks">
+        <div *ngFor="let task of (tasks | taskCompleted)">
             <div class="task">
                 <div class="task-info">
                     <h6>{{task.name}}</h6>

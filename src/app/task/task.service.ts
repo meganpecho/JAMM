@@ -3,14 +3,14 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Subscription } from 'rxjs/Subscription';
 import { ApiService } from '../core/api.service';
-import { Task, tasks } from '../core/models/task';
+import { Task, t } from '../core/models/task';
 
 @Injectable()
 export class TaskService {
 
     // getTasks(): Observable<Task[]> {
-    //     console.log(tasks);
-    //     return of(tasks);
+    //     console.log(t);
+    //     return of(t);
     // }
     //
     // // Fake server update; assume nothing can go wrong

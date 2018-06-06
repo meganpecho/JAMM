@@ -13,4 +13,4 @@ export class Task {
   ) { }
 }
 
-export const tasks:Task[] = [];
+export const t:Task[] = [];
