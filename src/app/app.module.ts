@@ -52,7 +52,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 import { DatepickerComponent } from './datepicker/datepicker.component';
-import { DailyToDoComponent } from'./daily-to-do/daily-to-do.component';
 import { NgbdModalComponent } from './ngb-modal/modal.component';
 import { NgbdDatepickerPopupComponent } from './ngb-datepicker/datepicker-popup.component';
 import { NgbdTimepickerMeridianComponent } from './ngb-timepicker/timepicker-meridian.component';
@@ -67,11 +66,9 @@ import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
-import { TaskFormComponent } from './task-form/task-form.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormModalComponent } from './task-form-modal/task-form-modal.component';
 import { ApiService } from './core/api.service';
-import { TestingApiComponent } from './core/testing-api/testing-api.component';
 import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
 
 @NgModule({
@@ -83,7 +80,6 @@ import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
     SidenavComponent,
     ChartComponent,
     DatepickerComponent,
-    DailyToDoComponent,
 	NgbdModalComponent,
 	NgbdDatepickerPopupComponent,
     NgbdTimepickerMeridianComponent,
@@ -93,10 +89,8 @@ import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
     FaqComponent,
     ContactComponent,
     FooterComponent,
-    TaskFormComponent,
     TaskListComponent,
     TaskFormModalComponent,
-    TestingApiComponent,
     TimeTrackerComponent
   ],
   imports: [
@@ -145,7 +139,7 @@ import { TimeTrackerComponent } from './time-tracker/time-tracker.component';
     FullCalendarModule
   ],
   exports: [
-      TaskFormComponent,
+      TaskFormModalComponent,
       TaskListComponent
   ],
   providers: [AuthService, EventService, TaskService, ApiService],
