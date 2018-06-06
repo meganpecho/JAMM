@@ -23,6 +23,9 @@ h4 {
     .dark {
         color: $jumbotron;
     }
+    .timer {
+        color: $timer;
+    }
 }
 
 h5 {
@@ -39,6 +42,7 @@ h5 {
 p {
     font-size: 15px;
     font-family: $p;
+    margin-bottom: 2px;
     .light {
         color: white;
     }

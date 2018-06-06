@@ -12,3 +12,5 @@ export class Task {
     public _id?: string,
   ) { }
 }
+
+export const tasks:Task[] = [];

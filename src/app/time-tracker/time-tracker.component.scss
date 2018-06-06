@@ -1,0 +1,62 @@
+@import '~sass/mixins';
+.time-tracker {
+    min-width: 300px;
+    height: 300px;
+    border: 1px solid #aaaaaa;
+    box-shadow: 1px 1px 5px #aaaaaa;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    .timer-container {
+        width: 90%;
+        display: flex;
+        margin: 20px 0px;
+        flex-flow: column;
+        align-items: center;
+        h4 {
+            color: $timer;
+            font-weight: 700;
+            font-size: 40px;
+        }
+        .btn-container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-content: space-between;
+            .icon-btns {
+                margin: 0 15px;
+            }
+        }
+        hr {
+            width: 90%;
+            margin: 5px;
+        }
+    }
+    .current-task {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        width: 90%;
+        .titled {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        .task {
+            display: flex;
+            background-color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            .task-info {
+                display: flex;
+                flex-flow: column nowrap;
+                min-height: 125px;
+            }
+            h6, p {
+                max-width: 290px;
+                word-wrap: break-word;
+            }
+        }
+    }
+}
